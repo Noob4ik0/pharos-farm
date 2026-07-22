@@ -111,7 +111,7 @@ def apause(a=60, b=240):
     time.sleep(random.randint(a, b))
 
 
-def rand_sleep(min_m=54, max_m=120):
+def rand_sleep(min_m=15, max_m=40):
     d = random.randint(min_m * 60, max_m * 60)
     h, m = divmod(d // 60, 60)
     print(f"⏳ Пауза ~{h}ч {m}мин...", flush=True)
@@ -322,5 +322,5 @@ while True:
                     print(f"[wallet-{idx}] ❌ {e}", flush=True)
             else:
                 print(f"[wallet-{idx}] ❌ {e}", flush=True)
-        rand_sleep(54, 120)
+        rand_sleep(15, 40)
     print("✅ Раунд завершён.\n", flush=True)
