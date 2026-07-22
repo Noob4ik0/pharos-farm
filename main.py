@@ -63,10 +63,10 @@ DUMMY_BYTECODE = (
 
 
 def make_w3(proxy_url):
-    w3 = Web3(Web3.HTTPProvider(RPC, request_kwargs={
-        'proxies': {'http': proxy_url, 'https': proxy_url},
-        'timeout': 30,
-    }))
+    kwargs = {'timeout': 30}
+    if proxy_url:
+        kwargs['proxies'] = {'http': proxy_url, 'https': proxy_url}
+    w3 = Web3(Web3.HTTPProvider(RPC, request_kwargs=kwargs))
     w3.middleware_onion.inject(ExtraDataToPOAMiddleware, layer=0)
     return w3
 
